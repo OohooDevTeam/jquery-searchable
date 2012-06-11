@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/jquery-1.7.1.js"></script>
+        <script src="js/jquery_searchable.js"></script>
+        <style>
+            .searchable {
+                width: 300px;
+                height: 150px;
+                background-color:#a8d8eb;
+                margin:10px;
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="searchable_default" class="searchable">
+            <div>Alpha</div>
+            <div>Beta</div>
+            <div>Charlie</div>
+            <div>Delta</div>
+            <div>Alpha2</div>
+            <div>Beta2</div>
+            <div>Charlie2</div>
+            <div>Delta2</div>
+        </div>
+
+        <div id="searchable_class" class="searchable">
+            <div class="searchable_class">Alpha</div>
+            <div class="searchable_class">Beta</div>
+            <div class="searchable_class">Charlie</div>
+            <div class="searchable_class">Delta</div>
+            <div>Alpha2</div>
+            <div>Beta2</div>
+            <div class="searchable_class">Charlie2</div>
+            <div>Delta2</div>
+        </div>
+
+        <div id="searchable_tags" class="searchable">
+            <div tags="alpha">Alpha</div>
+            <div tags="beta">Beta</div>
+            <div tags="charlie">Charlie</div>
+            <div tags="delta">Delta</div>
+        </div>
+
+        <div id="searchable_function" class="searchable">
+            <div><span>Alpha</span></div>
+            <div><span>Beta</span></div>
+            <div><span>Charlie</span></div>
+            <div><span>Delta</span></div>
+        </div>
+
+        <script>
+            $('#searchable_default').searchable();
+            $('#searchable_class').searchable({
+                searchable_class: '.searchable_class',
+                background_color: 'yellow'
+            });
+            $('#searchable_tags').searchable({
+                type: 'attr',			//default html (grabbs inner html and compares)
+				searchable_attr: 'tags', //Default 'tags'
+				search_label: 'aLabel:' //Default 'Search:'
+            });
+            
+            $('#searchable_function').searchable({
+				bar_location:	'bottom', //Default 'top' -- Note: Button kinda buggy.
+                type: 'function',
+                searchable_function: function(element) {
+                    return element.children('span').html(); //default return element.html()
+                }
+            });
+        </script>
+
+
+    </body>
+</html>
