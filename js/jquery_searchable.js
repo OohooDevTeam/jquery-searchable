@@ -29,11 +29,12 @@
             //First let's add a search bar and make sure this object has relative positioning.
             searchable.css({
                 'position': 'relative',
-                '-box-sizing': 'border-box',
+                'box-sizing': 'border-box',
                 '-ms-box-sizing': 'border-box',
                 '-webkit-box-sizing': 'border-box',
                 '-moz-box-sizing': 'border-box',
                 'height':   settings.height
+                
             });
             
             
@@ -102,7 +103,8 @@
                 'position' : 'absolute',
                 'left' : '0px',
                 'width': '100%',
-                'background-color' : settings.background_color
+                'background-color' : settings.background_color,
+                'text-align' : 'center'
             });
 
             //Attach the searchbar.
