@@ -104,8 +104,10 @@
                 'left' : '0px',
                 'width': '100%',
                 'background-color' : settings.background_color,
-                'text-align' : 'center'
+                'text-align' : 'center',
+                'cursor' : 'default'
             });
+            searchbar.children("input").css('cursor', 'text');
 
             //Attach the searchbar.
             var searchbarHeight = searchbar.css('visibility', 'hidden').appendTo('body').height();
