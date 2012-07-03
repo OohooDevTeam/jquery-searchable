@@ -44,7 +44,7 @@
             var master_list = $('<div class="widget_searchable_master_list"></div>').css('display', 'none');
             
             //Get all elements and add to master list.
-            searchable.children().clone().appendTo(master_list);
+            searchable.children().clone(true, false).appendTo(master_list);
 
             //Mark non-searchable as 'dead'
             master_list.children().not(settings.searchable_class).addClass('widget_searchable_dead');
@@ -80,16 +80,16 @@
                         //Only show dead elements if there is no searchtext.
                         if(searchtext == '') {
                             //Note: searchable_element class is only used so I know to remove this class when a new search started.
-                            $(value).clone().removeClass('widget_searchable_dead').addClass('widget_searchable_element').appendTo(searchable);
+                            $(value).clone(true, false).removeClass('widget_searchable_dead').addClass('widget_searchable_element').appendTo(searchable);
                         }
                     } else {
                         if(isExactly) {
                             if(searchable_string == searchtext.substring(1)) {
-                                $(value).clone().addClass('widget_searchable_element').appendTo(searchable);
+                                $(value).clone(true, false).addClass('widget_searchable_element').appendTo(searchable);
                             }
                         } else {
                             if(searchable_string.toLowerCase().indexOf(searchtext.toLowerCase()) >= 0) {
-                                $(value).clone().addClass('widget_searchable_element').appendTo(searchable);
+                                $(value).clone(true, false).addClass('widget_searchable_element').appendTo(searchable);
                             }
                         }
                     }
